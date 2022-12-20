@@ -12,9 +12,15 @@ namespace TeduShop.Model.Models
     internal class PostTag
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
         public int PostID { get; set; }
         [Key]
+        [Column(TypeName ="varchar")]
+        [MaxLength(50)]
         public string TagID { get; set; }
+        [ForeignKey("PostID")]
+        public virtual Post Post { get; set; }
+        [ForeignKey("TagID")]
+        public virtual Tag Tag { get; set; }
     }
 }

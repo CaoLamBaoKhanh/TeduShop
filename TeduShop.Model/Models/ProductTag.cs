@@ -12,9 +12,15 @@ namespace TeduShop.Model.Models
     internal class ProductTag
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
         public int ProductID { get; set; }
         [Key]
+        [Column(TypeName ="varchar")]
+        [MaxLength(256)]
         public string TagID { get; set; }
+        [ForeignKey("ProductID")]
+        public virtual Product Product { get; set; }
+        [ForeignKey("TagID")]
+        public virtual Tag Tag { get; set; }
     }
 }
