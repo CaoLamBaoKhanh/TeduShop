@@ -16,15 +16,20 @@ namespace TeduShop.Model.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         [Required]
+        [MaxLength(256)]
         public string Name { get; set; }
         [Required]
+        [Column(TypeName = "varchar")]
+        [MaxLength(256)]
         public string Alas { get; set; }
+        [MaxLength(500)]
         public string Description { get; set; }
-        public int ParentID { get; set; }
-        public int DisplayOrder { get; set; }
-        public string? Image { get; set; }
+        public int? ParentID { get; set; }
+        public int? DisplayOrder { get; set; }
+        [MaxLength(256)]
+        public string Image { get; set; }
         public bool? HomeFlag { get; set; }
 
-        public virtual IEnumerable<PostCategory>   PostCategories { get; set; }
+        public virtual IEnumerable<Post> Posts { get; set; }
     }
 }

@@ -13,10 +13,11 @@ namespace TeduShop.Model.Models
     internal class VisitorStatistic
     {
         [Key]
-        public UniqueId ID { get; set; }
+        public Guid ID { get; set; }
         [Required]
         public DateTime VisitedDate { get; set; }
-        [Required]
+        
+        [MaxLength(50)]
         public string IPAddress { get; set; }
     }
 }

@@ -12,9 +12,13 @@ namespace TeduShop.Model.Models
     internal class Tag
     {
         [Key]
+        [MaxLength(50)]
         public string ID { get; set; }
         [Required]
+        [MaxLength(256)]
         public string Name { get; set; }
+        [MaxLength(256)]
+        [Required]
         public string Type { get; set; }
     }
 }

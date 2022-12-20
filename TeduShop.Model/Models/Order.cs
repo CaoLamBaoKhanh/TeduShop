@@ -15,15 +15,28 @@ namespace TeduShop.Model.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         [Required]
+        [StringLength(50)]
         public string CustomerName { get; set; }
+        [Required]
+        [StringLength(50)]
         public string CustomerAddress { get; set; }
+        [Required]
+        [StringLength(50)]
         public string CustomerEmail { get; set; }
+        [Required]
+        [StringLength(50)]
         public string CustomerMobile { get; set; }
+        [Required]
+        [StringLength(50)]
         public string CustomerMessage { get; set; }
+        [Required]
+        [StringLength(50)]
         public DateTime? CreatedDate { get; set; }
         public string? CreatedBy { get; set; }
         public string? PaymentMethod { get; set; }
         public string? PaymentStatus { get; set; }
         public bool? Status { get; set; }
+
+        public virtual IEnumerable<OrderDetail> Details { get;set; }
     }
 }
